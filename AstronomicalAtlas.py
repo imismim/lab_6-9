@@ -12,8 +12,9 @@ class AstronomicalAtlas:
     def __init__(self, lst_object=[]):
         self.__lst_object = lst_object
 
-    def read_from_file(self, name_file):
-        self.__lst_object = File.read_from_file_to_list(name_file)
+    @staticmethod
+    def read_from_file(name_file):
+        return AstronomicalAtlas(File.read_from_file_to_list(name_file))
 
     def stars_giant(self):
         lst_star_giant = [obj for obj in self.__lst_object if
